@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HousingLocation } from '../housinglocation';
-import { Designs } from '../designs';
+import { HousingLocation } from '../models/housinglocation';
+import { Designs } from '../models/designs';
 import { RouterModule } from '@angular/router';
 
 @Component({

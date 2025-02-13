@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
-import { AuthenticationService } from '../authentication.service';
+import { AuthenticationService } from '../service/authentication.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -21,7 +21,7 @@ export class LoginComponent {
 
   constructor() {
     this.loginForm = this.fb.group({
-      userName: ['', [Validators.required, Validators.minLength(6)]],
+      email: ['', [Validators.required, Validators.minLength(6)]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
 

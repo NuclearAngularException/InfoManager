@@ -4,7 +4,7 @@ import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 import routeConfig from './app/routes';
 import { AppComponent } from './app/app.component';
-import { AuthenticationService } from './app/authentication.service';
+import { AuthenticationService } from './app/service/authentication.service';
 
 bootstrapApplication(AppComponent, {
   providers: [

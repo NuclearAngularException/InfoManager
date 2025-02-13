@@ -1,8 +1,8 @@
 
 import { Injectable } from '@angular/core';
-import { HousingLocation } from './housinglocation';
-import { Designs } from './designs';
-import { Puja } from './puja';
+import { HousingLocation } from '../models/housinglocation';
+import { Designs } from '../models/designs';
+import { Puja } from '../models/puja';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 

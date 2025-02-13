@@ -13,7 +13,7 @@ export class AuthenticationService {
   login(credentials: { email: string; password: string }): Observable<{ result: {token: string} }> {
     return this.http.post<{result:{token: string}  }>(this.apiUrl, credentials).pipe(
       tap(response => {
-        console.log('Full Response:', response);  // Log the full response
+        console.log('Full Response:', response);  
         if (response && response.result.token) {
           localStorage.setItem(this.tokenKey, response.result.token);
         } else {

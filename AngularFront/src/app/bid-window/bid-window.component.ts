@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { HousingService } from '../housing.service';
-import { AuthenticationService } from '../authentication.service';
+import { HousingService } from '../service/housing.service';
+import { AuthenticationService } from '../service/authentication.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { Designs } from '../designs';
+import { Designs } from '../models/designs';
 
 @Component({
   selector: 'app-bid-window',

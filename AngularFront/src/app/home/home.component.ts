@@ -1,9 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { HousingLocationComponent } from '../housing-location/housing-location.component';
-import { HousingLocation } from '../housinglocation';
-import { Designs } from '../designs';
-import { AuthenticationService } from '../authentication.service';
-import { HousingService } from '../housing.service';
+import { HousingLocation } from '../models/housinglocation';
+import { Designs } from '../models/designs';
+import { AuthenticationService } from '../service/authentication.service';
+import { HousingService } from '../service/housing.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';

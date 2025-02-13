@@ -14,12 +14,12 @@
 
     <UserControl.Background>
         <ImageBrush 
-            ImageSource="/Resources/edificio.jpg" 
+            ImageSource="/Resources/Instituto.jpg" 
             Stretch="UniformToFill" />
     </UserControl.Background>
 
 
-    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+    <Grid>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -31,20 +31,28 @@
             <RowDefinition Height="Auto" />
 
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Source="/Resources/IconComercio.png" Grid.Column="0" Grid.Row="0"/>
 
 
         <TextBlock 
-            Text="Inicio de Sesión" 
+            Text="Gestion de Proyectos" 
             FontSize="28" 
             FontWeight="SemiBold" 
             Foreground="Black" 
             HorizontalAlignment="Center" 
             Margin="0,0,0,20" 
-            Grid.Row="0" />
+            Grid.Row="0"
+            Grid.Column="1"/>
 
 
         <StackPanel 
-            Grid.Row="1" 
+            Grid.Row="1"
+            Grid.Column="1"
             VerticalAlignment="Center" 
             HorizontalAlignment="Center" 
             Margin="0,10,0,20">
@@ -64,42 +72,47 @@
                 Margin="0,10,0,10" 
                 Background="#F7F7F7"
                 Password="{Binding PasswordView, Mode=TwoWay}" />
-        </StackPanel>
 
-        <!-- Botón de inicio de sesión -->
-        <ui:Button 
+            <StackPanel 
+    Grid.Row="3" 
+    Orientation="Horizontal" 
+    HorizontalAlignment="Center" 
+    Margin="0,10,0,0">
+
+                <TextBlock 
+        Text="¿No tienes una cuenta? " 
+        Foreground="White" 
+        VerticalAlignment="Center" />
+
+                <TextBlock 
+        Foreground="#4A90E2" 
+        Cursor="Hand" 
+        VerticalAlignment="Center">
+        <Hyperlink Command="{Binding RegisterCommand}">
+            <Run Text="Regístrate aquí" />
+        </Hyperlink>
+                </TextBlock>
+            </StackPanel>
+
+            <ui:Button 
             Command="{Binding LoginCommand, Mode=OneWay}"
-            Content="Iniciar Sesión"
+            Content="Login"
             Width="180" 
             Height="50" 
-            Background="Black" 
-            Foreground="White"
+            Background="LightSkyBlue" 
+            Foreground="Black"
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
             CornerRadius="10"
-            Grid.Row="2" />
+            Margin="0,15,0,0"
+    />
+        </StackPanel>
+
+        <!-- Botón de inicio de sesión -->
+        
 
         <!-- Registro -->
-        <StackPanel 
-            Grid.Row="3" 
-            Orientation="Horizontal" 
-            HorizontalAlignment="Center" 
-            Margin="0,10,0,0">
-
-            <TextBlock 
-                Text="¿No tienes una cuenta? " 
-                Foreground="White" 
-                VerticalAlignment="Center" />
-
-            <TextBlock 
-                Foreground="#4A90E2" 
-                Cursor="Hand" 
-                VerticalAlignment="Center">
-                <Hyperlink Command="{Binding RegisterCommand}">
-                    <Run Text="Regístrate aquí" />
-                </Hyperlink>
-            </TextBlock>
-        </StackPanel>
+        
     </Grid>
 </UserControl>
 

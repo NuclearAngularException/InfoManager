@@ -13,7 +13,7 @@
 
     <UserControl.Background>
         <ImageBrush 
-     ImageSource="/Resources/edificio.jpg" 
+     ImageSource="/Resources/Instituto.jpg" 
      Stretch="UniformToFill" />
     </UserControl.Background>
 
@@ -35,7 +35,7 @@
 
 
         <TextBlock 
-            Text="Registro de Usuario" 
+            Text="Registro " 
             FontSize="28" 
             FontWeight="SemiBold" 
             Foreground="Black"
@@ -126,8 +126,8 @@
             Command="{Binding RegistroCommand, Mode=OneWay}"
             Content="Registrarse"
             Icon="{ui:SymbolIcon Symbol=Add20}"
-            Background="Black" 
-            Foreground="White"
+            Background="LightSkyBlue" 
+            Foreground="Black"
             Width="200" 
             Height="50" 
             HorizontalAlignment="Left" 

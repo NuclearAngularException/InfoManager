@@ -48,7 +48,7 @@ namespace RestAPI.Repository
 
         public async Task<UserLoginResponseDto> Login(UserLoginDto userLoginDto)
         {
-            var user = _context.AppUsers.FirstOrDefault(u => u.UserName.ToLower() == userLoginDto.Email.ToLower());
+            var user = _context.AppUsers.FirstOrDefault(u => u.Email.ToLower() == userLoginDto.Email.ToLower());
             bool isValid = await _userManager.CheckPasswordAsync(user, userLoginDto.Password);
 
             //user doesn't exist ?
@@ -72,7 +72,7 @@ namespace RestAPI.Repository
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name, user.UserName.ToString()),
+                    new Claim(ClaimTypes.Name, user.Email.ToString()),
                     new Claim(ClaimTypes.Role, roles.FirstOrDefault())
 
                 }),
@@ -96,7 +96,7 @@ namespace RestAPI.Repository
             {
                 UserName = userRegistrationDto.UserName,
                 Name = userRegistrationDto.Name,
-                Email = userRegistrationDto.UserName,
+                Email = userRegistrationDto.Email,
                 NormalizedEmail = userRegistrationDto.UserName.ToUpper(),
             };
 
@@ -105,11 +105,12 @@ namespace RestAPI.Repository
             {
                 return null;
             }
-            if (!await _roleManager.RoleExistsAsync("admin"))
+            if (!await _roleManager.RoleExistsAsync("profesor"))
             {
                 //this will run only for first time the roles are created
                 await _roleManager.CreateAsync(new IdentityRole("admin"));
                 await _roleManager.CreateAsync(new IdentityRole("register"));
+                await _roleManager.CreateAsync(new IdentityRole("profesor"));
             }
             await _userManager.AddToRoleAsync(user, "admin");
             AppUser? newUser = _context.AppUsers.FirstOrDefault(u => u.UserName == userRegistrationDto.UserName);

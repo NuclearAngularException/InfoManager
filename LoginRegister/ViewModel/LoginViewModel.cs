@@ -33,7 +33,7 @@ namespace InfoManager.ViewModel
         public async Task Login()
         {
 
-            App.Current.Services.GetService<LoginDTO>().UserName = Name;
+            App.Current.Services.GetService<LoginDTO>().Email = Name;
             App.Current.Services.GetService<LoginDTO>().Password = PasswordView;
            
 

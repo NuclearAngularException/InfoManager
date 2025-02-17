@@ -1,10 +1,10 @@
-﻿using ApiPelicula.Models.DTOs;
-using ApiPelicula.Models.DTOs.UserDto;
-using ApiPelicula.Repository;
-using ApiPelicula.Repository.IRepository;
+﻿
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using RestAPI.Models.DTOs;
+using RestAPI.Models.DTOs.UserDto;
+using RestAPI.Repository.IRepository;
 using System.Net;
 
 namespace RestAPI.Controllers

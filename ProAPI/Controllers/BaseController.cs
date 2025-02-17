@@ -7,6 +7,7 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using global::RestAPI.Repository;
+    using global::AutoMapper;
 
     namespace RestAPI.Controllers
     {

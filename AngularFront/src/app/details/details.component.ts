@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { HousingService } from '../housing.service';
 import { Router } from '@angular/router';
-import { HousingLocation } from '../housinglocation';
+import { HousingLocation } from '../models/housinglocation';
 import { RouterModule } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
-import { Designs } from '../designs';
+import { Designs } from '../models/designs';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({

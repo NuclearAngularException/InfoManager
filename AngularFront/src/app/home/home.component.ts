@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { HousingLocationComponent } from '../housing-location/housing-location.component';
-import { HousingLocation } from '../housinglocation';
-import { Designs } from '../designs';
+import { HousingLocation } from '../models/housinglocation';
+import { Designs } from '../models/designs';
 import { AuthenticationService } from '../authentication.service';
 import { HousingService } from '../housing.service';
 import { CommonModule } from '@angular/common';

@@ -5,7 +5,7 @@ import { HousingService } from '../housing.service';
 import { AuthenticationService } from '../authentication.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { Designs } from '../designs';
+import { Designs } from '../models/designs';
 
 @Component({
   selector: 'app-bid-window',

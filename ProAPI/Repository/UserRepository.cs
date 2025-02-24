@@ -105,14 +105,23 @@ namespace RestAPI.Repository
             {
                 return null;
             }
-            if (!await _roleManager.RoleExistsAsync("profesor"))
+            if (!await _roleManager.RoleExistsAsync("profesor")|| !await _roleManager.RoleExistsAsync("alumno"))
             {
                 //this will run only for first time the roles are created
                 await _roleManager.CreateAsync(new IdentityRole("admin"));
-                await _roleManager.CreateAsync(new IdentityRole("register"));
+                await _roleManager.CreateAsync(new IdentityRole("alumno"));
                 await _roleManager.CreateAsync(new IdentityRole("profesor"));
             }
-            await _userManager.AddToRoleAsync(user, "admin");
+            if (userRegistrationDto.Role.Equals("profesor"))
+            {
+                await _userManager.AddToRoleAsync(user, "profesor");
+            }
+            else if (userRegistrationDto.Role.Equals("alumno"))
+            {
+                await _userManager.AddToRoleAsync(user, "alumno");
+
+            }
+
             AppUser? newUser = _context.AppUsers.FirstOrDefault(u => u.UserName == userRegistrationDto.UserName);
 
             return new UserLoginResponseDto

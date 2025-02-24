@@ -70,23 +70,7 @@ namespace RestAPI.Migrations
                     table.PrimaryKey("PK_Proyectos", x => x.Id);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Users",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Apellidos = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Contraseña = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Rol = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Telefono = table.Column<int>(type: "int", maxLength: 9, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Users", x => x.Id);
-                });
+       
 
             migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
@@ -255,8 +239,7 @@ namespace RestAPI.Migrations
             migrationBuilder.DropTable(
                 name: "Proyectos");
 
-            migrationBuilder.DropTable(
-                name: "Users");
+           
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

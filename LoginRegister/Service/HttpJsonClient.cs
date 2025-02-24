@@ -137,7 +137,7 @@ namespace InfoManager.Services
                 using (HttpClient httpClient = new HttpClient())
                 {
 
-                    httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {loginDTO.Token}");
+                    //httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {loginDTO.Token}");
 
                     // Serializar el objeto 'data' (UserRegistroDTO) a JSON
                     string jsonContent = JsonSerializer.Serialize(data);

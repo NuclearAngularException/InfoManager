@@ -50,7 +50,7 @@ namespace InfoManager.ViewModel
                 UserName = UserName,
                 Email = Email,
                 Password = Password,
-                Role = "user"
+                Role = "profesor"
             };
 
             try

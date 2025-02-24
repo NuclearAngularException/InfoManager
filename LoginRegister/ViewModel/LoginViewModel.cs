@@ -35,7 +35,9 @@ namespace InfoManager.ViewModel
 
             App.Current.Services.GetService<LoginDTO>().Email = Name;
             App.Current.Services.GetService<LoginDTO>().Password = PasswordView;
-           
+            
+
+
 
 
 

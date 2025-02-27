@@ -1,7 +1,7 @@
 ﻿
 using AutoMapper;
 using RestAPI.Models.DTOs;
-using RestAPI.Models.DTOs.ProyectoDTO;
+using RestAPI.Models.DTOs;
 using RestAPI.Models.DTOs.UserDto;
 
 

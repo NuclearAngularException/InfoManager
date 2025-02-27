@@ -9,6 +9,7 @@ using RestAPI.Models.Entity;
 using RestAPI.Repository.IRepository;
 using RestAPI.Data;
 using RestAPI.Models.DTOs.UserDto;
+using Microsoft.EntityFrameworkCore;
 
 namespace RestAPI.Repository
 {
@@ -38,7 +39,7 @@ namespace RestAPI.Repository
 
         public ICollection<AppUser> GetUsers()
         {
-            return _context.AppUsers.OrderBy(user => user.UserName).ToList();
+            return _context.AppUsers.OrderBy(user => user.UserName).Include(user=>user.ProyectosAlumno).Include(user=>user.ProyectosProfesor).ToList();
         }
 
         public bool IsUniqueUser(string userName)

@@ -1,4 +1,4 @@
-﻿namespace RestAPI.Models.DTOs.ProyectoDTO;
+﻿namespace RestAPI.Models.DTOs;
 
 public class ProyectoDTO : CreateProyectoDTO
 {

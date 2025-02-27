@@ -6,5 +6,9 @@ namespace RestAPI.Models.Entity
     {
         public string Name { get; set; }
         public string Email { get; set; }
+
+        public ICollection<ProyectoEntity> ProyectosProfesor { get; set; }
+
+        public ICollection<ProyectoEntity> ProyectosAlumno { get; set; }
     }
 }

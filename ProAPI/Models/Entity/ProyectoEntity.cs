@@ -23,14 +23,21 @@ namespace RestAPI.Models.Entity
         public string Tipo { get; set; }
 
         [Required]
-        public int IdAlumno { get; set; }
+        //[ForeignKey("IdAlumno")]
+        public string IdAlumno { get; set; }
         
         [Required]
-        public int IdProfesor { get; set; }
+        //[ForeignKey("IdProfesor")]
+        public string IdProfesor { get; set; }
 
         [Required]
         [MaxLength(50)]
         public String Estado { get; set; }
+
+        public AppUser Alumno { get; set; }
+
+        public AppUser Profesor { get; set; }
+
 
     }
 }

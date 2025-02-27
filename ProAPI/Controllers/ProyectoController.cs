@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using RestAPI.Controllers.RestAPI.Controllers;
-using RestAPI.Models.DTOs.ProyectoDTO;
+using RestAPI.Models.DTOs;
 using RestAPI.Models.Entity;
 using RestAPI.Repository.IRepository;
 

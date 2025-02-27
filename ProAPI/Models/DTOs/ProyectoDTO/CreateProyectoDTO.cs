@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RestAPI.Models.DTOs.ProyectoDTO;
+namespace RestAPI.Models.DTOs;
 
 public class CreateProyectoDTO
 {
@@ -17,10 +17,10 @@ public class CreateProyectoDTO
     public String Tipo {get; set;}
 
     [Required(ErrorMessage = "IdAlumno is required")]
-    public int IdAlumno {get; set;}
+    public string IdAlumno {get; set;}
 
     [Required(ErrorMessage = "IdProfesor is required")]
-    public int IdProfesor {get; set;}
+    public string IdProfesor {get; set;}
 
     [Required(ErrorMessage = "Estado is required")]
     public String Estado {get; set;}

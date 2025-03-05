@@ -20,18 +20,19 @@ namespace RestAPI.Models.Entity
 
         [Required]
         [MaxLength(50)]
+        //Documental, Innovación, Gestión
         public string Tipo { get; set; }
 
-        [Required]
-        //[ForeignKey("IdAlumno")]
+        [ForeignKey("IdAlumno")]
         public string IdAlumno { get; set; }
         
-        
+        [Required]
         //[ForeignKey("IdProfesor")]
-        public string? IdProfesor { get; set; }
+        public string IdProfesor { get; set; }
 
         [Required]
         [MaxLength(50)]
+        //Aprovado, Pendiente, Rechazado, Cerrado
         public String Estado { get; set; }
 
         public AppUser Alumno { get; set; }

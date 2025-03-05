@@ -15,11 +15,6 @@
             <view:DashboardView/>
         </DataTemplate>
 
-
-        <DataTemplate DataType="{x:Type viewModel:AddDicatadorViewModel}">
-            <view:AddDicatadorView/>
-        </DataTemplate>
-
         <DataTemplate DataType="{x:Type viewModel:LoginViewModel}">
             <view:LoginView/>
         </DataTemplate>

@@ -64,7 +64,7 @@
                 }
             }
 
-            [Authorize(Roles = "profesor")]
+            [Authorize(Roles = "profesor,alumno")]
             [HttpPost]
             [ProducesResponseType(StatusCodes.Status201Created)]
             [ProducesResponseType(StatusCodes.Status400BadRequest)]

@@ -16,8 +16,6 @@ public class CreateProyectoDTO
     [MaxLength(50, ErrorMessage = "Max char is 50")]
     public String Tipo {get; set;}
 
-    [Required(ErrorMessage = "IdAlumno is required")]
-    public string IdAlumno {get; set;}
 
     [Required(ErrorMessage = "IdProfesor is required")]
     public string IdProfesor {get; set;}

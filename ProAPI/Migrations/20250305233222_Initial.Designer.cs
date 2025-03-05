@@ -12,7 +12,7 @@ using RestAPI.Data;
 namespace RestAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250305225320_Initial")]
+    [Migration("20250305233222_Initial")]
     partial class Initial
     {
         /// <inheritdoc />

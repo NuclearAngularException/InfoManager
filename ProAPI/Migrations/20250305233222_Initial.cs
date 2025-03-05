@@ -184,8 +184,8 @@ namespace RestAPI.Migrations
                         name: "FK_Proyectos_AspNetUsers_IdProfesor",
                         column: x => x.IdProfesor,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id"
-                        );
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

@@ -28,7 +28,7 @@
             }
 
             [HttpGet]
-            [Authorize(Roles = "profesor")]
+            [Authorize(Roles = "profesor,alumno")]
             [ProducesResponseType(StatusCodes.Status200OK)]
             public async Task<IActionResult> GetAll()
             {
@@ -44,7 +44,7 @@
                 }
             }
 
-            [Authorize(Roles = "profesor")]
+            [Authorize(Roles = "profesor,alumno")]
             [HttpGet("{id:int}", Name = "[controller]_GetEntity")]
             [ProducesResponseType(StatusCodes.Status200OK)]
             [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -73,7 +73,7 @@
                 try
                 {
                     if (!ModelState.IsValid) return BadRequest(ModelState);
-
+                    
                     var entity = _mapper.Map<TEntity>(createDto);
                     await _repository.CreateAsync(entity);
 
@@ -87,7 +87,7 @@
                 }
             }
 
-            [Authorize(Roles = "profesor")]
+            [Authorize(Roles = "profesor,alumno")]
             [HttpPut("{id:int}")]
             [ProducesResponseType(StatusCodes.Status200OK)]
             [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -112,7 +112,7 @@
                 }
             }
 
-            [Authorize(Roles = "profesor")]
+            [Authorize(Roles = "profesor,alumno")]
             [HttpDelete("{id:int}")]
             [ProducesResponseType(StatusCodes.Status200OK)]
             [ProducesResponseType(StatusCodes.Status404NotFound)]

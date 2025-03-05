@@ -26,9 +26,9 @@ namespace RestAPI.Models.Entity
         //[ForeignKey("IdAlumno")]
         public string IdAlumno { get; set; }
         
-        [Required]
+        
         //[ForeignKey("IdProfesor")]
-        public string IdProfesor { get; set; }
+        public string? IdProfesor { get; set; }
 
         [Required]
         [MaxLength(50)]

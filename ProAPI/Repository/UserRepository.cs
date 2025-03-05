@@ -74,7 +74,9 @@ namespace RestAPI.Repository
                 Subject = new ClaimsIdentity(new Claim[]
                 {
                     new Claim(ClaimTypes.Name, user.Email.ToString()),
-                    new Claim(ClaimTypes.Role, roles.FirstOrDefault())
+                    new Claim(ClaimTypes.Role, roles.FirstOrDefault()),
+                    new Claim(ClaimTypes.NameIdentifier, user.Id)
+
 
                 }),
                 Expires = DateTime.UtcNow.AddMinutes(TokenExpirationDays),
@@ -85,8 +87,7 @@ namespace RestAPI.Repository
 
             UserLoginResponseDto userLoginResponseDto = new UserLoginResponseDto
             {
-                Token = tokenHandler.WriteToken(jwtToken),
-                User = user
+                Token = tokenHandler.WriteToken(jwtToken)
             };
             return userLoginResponseDto;
         }

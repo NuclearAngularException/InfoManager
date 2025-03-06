@@ -65,7 +65,7 @@ namespace RestAPI.Repository
 
         public async Task<bool> CreateAsync(ProyectoEntity ProyectoEntity)
         {
-            
+            ProyectoEntity.CreatedDate = DateTime.Now;
             _context.Proyectos.Add(ProyectoEntity);
             return await Save();
         }

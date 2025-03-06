@@ -120,6 +120,33 @@ namespace RestAPI.Controllers
             }
         }
 
+        [Authorize(Roles = "profesor")]
+        [HttpPut("State/{id:int}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> UpdateState(int id, [FromBody] ProyectoDTO dto)
+        {
+            try
+            {
+                if (!ModelState.IsValid) return BadRequest(ModelState);
+
+                dto.IdProfesor = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+                var entity = await _proyectoRepository.GetAsync(id);
+                if (entity == null) return NotFound();
+
+                _mapper.Map(dto, entity);
+                await _proyectoRepository.UpdateAsync(entity);
+
+                return Ok(_mapper.Map<ProyectoDTO>(entity));
+            }
+            catch (Exception ex)
+            {
+                //_logger.LogError(ex, "Error updating data");
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
         [Authorize(Roles = "profesor,alumno")]
         [HttpDelete("{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]

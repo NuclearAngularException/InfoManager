@@ -9,7 +9,7 @@
     xmlns:viewmodels="clr-namespace:InfoManager.ViewModel" 
     d:DataContext="{d:DesignInstance Type=viewmodels:RegistroViewModel}"
     mc:Ignorable="d"
-    Height="412" Width="801">
+    Height="auto" Width="auto">
 
     <UserControl.Background>
         <ImageBrush 

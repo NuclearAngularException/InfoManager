@@ -25,9 +25,6 @@ namespace RestAPI.Models.Entity
         [Required]
         //[ForeignKey("IdAlumno")]
         public string IdAlumno { get; set; }
-        
-        
-        //[ForeignKey("IdProfesor")]
         public string? IdProfesor { get; set; }
 
         [Required]
@@ -36,7 +33,7 @@ namespace RestAPI.Models.Entity
 
         public AppUser Alumno { get; set; }
 
-        public AppUser Profesor { get; set; }
+        public AppUser? Profesor { get; set; }
 
 
     }

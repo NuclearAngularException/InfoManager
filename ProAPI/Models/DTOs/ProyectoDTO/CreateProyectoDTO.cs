@@ -14,11 +14,11 @@ public class CreateProyectoDTO
 
     [Required(ErrorMessage = "Tipo is required")]
     [MaxLength(50, ErrorMessage = "Max char is 50")]
-    public String Tipo {get; set;}
+    public string Tipo {get; set;}
 
 
-    [Required(ErrorMessage = "IdProfesor is required")]
-    public string IdProfesor {get; set;}
+    
+    public string? IdProfesor {get; set;}
 
     [Required(ErrorMessage = "Estado is required")]
     public String Estado {get; set;}

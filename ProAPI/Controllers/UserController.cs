@@ -98,7 +98,7 @@ namespace RestAPI.Controllers
         {
             var responseLogin = await _userRepository.Login(userLoginDto);
 
-            if (responseLogin.User == null || string.IsNullOrEmpty(responseLogin.Token))
+            if (string.IsNullOrEmpty(responseLogin.Token))
             {
                 _reponseApi.StatusCode = HttpStatusCode.BadRequest;
                 _reponseApi.IsSuccess = false;

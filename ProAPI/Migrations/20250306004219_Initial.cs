@@ -168,7 +168,7 @@ namespace RestAPI.Migrations
                     Descripcion = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     Tipo = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     IdAlumno = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    IdProfesor = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    IdProfesor = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     Estado = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
@@ -184,8 +184,7 @@ namespace RestAPI.Migrations
                         name: "FK_Proyectos_AspNetUsers_IdProfesor",
                         column: x => x.IdProfesor,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(

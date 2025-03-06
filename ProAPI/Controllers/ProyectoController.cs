@@ -154,7 +154,7 @@ namespace RestAPI.Controllers
                 if(dto.Estado== "Aprobado")
                 {
                     dto.IdProfesor = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                    dto.ProfesorNombre=User.FindFirstValue(ClaimTypes.Name);
+                    //dto.ProfesorNombre=User.FindFirstValue(ClaimTypes.Name);
                 }
 
 

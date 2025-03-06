@@ -14,8 +14,8 @@
 
     <UserControl.Background>
         <ImageBrush 
-        ImageSource="/Resources/edificio.jpg" 
-        Stretch="UniformToFill" />
+             ImageSource="/Resources/Instituto.jpg" 
+             Stretch="UniformToFill" />
     </UserControl.Background>
 
     <Grid Margin="42" VerticalAlignment="Top" RenderTransformOrigin="0.502,0.458">
@@ -24,18 +24,6 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-
-        <ui:Button
-            Command="{Binding AddDicatadorCommand, Mode=OneWay}"
-            Content="Agregar Dictador"
-            Icon="{ui:SymbolIcon Fluent24}"
-            Margin="10,10,0,10"
-            Background="Black" 
-            Foreground="White"
-            VerticalAlignment="Top"
-            Height="40"
-            Width="150"
-            HorizontalAlignment="Left" />
 
         <ui:Button
         Command="{Binding LogoutCommand, Mode=OneWay}"
@@ -51,7 +39,7 @@
         <ui:DataGrid
             Grid.Row="1"
             x:Name="Tabla"
-            ItemsSource="{Binding PagedDicatadores}"
+            ItemsSource="{Binding PagedProyectos}"
             AutoGenerateColumns="True"
             Margin="0,0,0,10"
             CellEditEnding="MyDataGrid_CellEditEnding"

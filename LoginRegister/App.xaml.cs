@@ -36,14 +36,12 @@ namespace InfoManager
 
             //view principal
             services.AddSingleton<MainWindow>();
-            services.AddSingleton<AddDicatadorView>();
 
 
             //view viewModels
             services.AddSingleton<MainViewModel>();
             services.AddTransient<DashboardViewModel>();
             services.AddTransient<LoginViewModel>();
-            services.AddSingleton<AddDicatadorViewModel>();
             services.AddTransient<RegistroViewModel>();
             services.AddTransient<ViewModelBase>();
       
@@ -51,7 +49,7 @@ namespace InfoManager
 
             //Services
             services.AddSingleton<LoginDTO>();   
-            services.AddSingleton<IDicatadorServiceToApi, DicatadorServiceToApi>();
+            services.AddSingleton<IProyectoServiceToApi, ProyectoServiceToApi>();
             services.AddSingleton(typeof(IHttpJsonProvider<>), typeof(HttpJsonService<>));
             return services.BuildServiceProvider();
         }

@@ -11,25 +11,23 @@ namespace InfoManager.ViewModel;
 
 public partial class DashboardViewModel : ViewModelBase
 {
-    private readonly IDicatadorServiceToApi _dicatadorServiceToApi;
-    private readonly AddDicatadorViewModel _addViewModel;
+    private readonly IProyectoServiceToApi _proyectoServiceToApi;
 
-    public DashboardViewModel(IDicatadorServiceToApi dicatadorServiceToApi, AddDicatadorViewModel addViewModel)
+    public DashboardViewModel(IProyectoServiceToApi proyectoServiceToApi)
     {
-        _dicatadorServiceToApi = dicatadorServiceToApi;
-        _addViewModel = addViewModel;
+        _proyectoServiceToApi = proyectoServiceToApi;
 
-        Dicatadores = new List<DicatadorDTO>(); 
-        PagedDicatadores = new ObservableCollection<DicatadorDTO>();
+        Proyectos = new List<ProyectoDTO>(); 
+        PagedProyectos = new ObservableCollection<ProyectoDTO>();
 
         ItemsPerPage = 5; 
         CurrentPage = 0; 
     }
 
-    private List<DicatadorDTO> Dicatadores; 
+    private List<ProyectoDTO> Proyectos; 
 
     [ObservableProperty]
-    private ObservableCollection<DicatadorDTO> pagedDicatadores;
+    private ObservableCollection<ProyectoDTO> pagedProyectos;
 
     [ObservableProperty]
     private int currentPage; 
@@ -37,7 +35,7 @@ public partial class DashboardViewModel : ViewModelBase
     [ObservableProperty]
     private int itemsPerPage; 
 
-    public int TotalPages => (int)Math.Ceiling((double)Dicatadores.Count / ItemsPerPage);
+    public int TotalPages => (int)Math.Ceiling((double)Proyectos.Count / ItemsPerPage);
 
  
     public override async Task LoadAsync()
@@ -45,16 +43,16 @@ public partial class DashboardViewModel : ViewModelBase
         try
         {
             
-            Dicatadores.Clear();
-            PagedDicatadores.Clear();
+            Proyectos.Clear();
+            PagedProyectos.Clear();
 
           
-            IEnumerable<DicatadorDTO> listaDicatadores = await _dicatadorServiceToApi.GetDicatadores();
-            Dicatadores.AddRange(listaDicatadores.OrderBy(d => d.Id));
+            IEnumerable<ProyectoDTO> listaProyectos= await _proyectoServiceToApi.GetProyectos();
+            Proyectos.AddRange(listaProyectos.OrderBy(d => d.Id));
 
           
             CurrentPage = 0;
-            UpdatePagedDicatadores();
+            UpdatePagedProyectos();
         }
         catch (Exception ex)
         {
@@ -64,29 +62,17 @@ public partial class DashboardViewModel : ViewModelBase
     }
 
    
-    private void UpdatePagedDicatadores()
+    private void UpdatePagedProyectos()
     {
        
-        PagedDicatadores.Clear();
+        PagedProyectos.Clear();
 
-        var pagedItems = Dicatadores.Skip(CurrentPage * ItemsPerPage).Take(ItemsPerPage).ToList();
+        var pagedItems = Proyectos.Skip(CurrentPage * ItemsPerPage).Take(ItemsPerPage).ToList();
         foreach (var item in pagedItems)
         {
-            PagedDicatadores.Add(item);
+            PagedProyectos.Add(item);
         }
     }
-
-    [RelayCommand]
-    public async Task AddDicatador()
-    {
-        var addDicatadorWindow = new AddDicatadorView();
-
-        var addDicatadorViewModel = App.Current.Services.GetService<AddDicatadorViewModel>();
-        addDicatadorWindow.DataContext = addDicatadorViewModel;
-        addDicatadorWindow.ShowDialog();       
-        await LoadAsync();
-    }
-
 
     [RelayCommand]
     public async Task Logout() 
@@ -101,7 +87,7 @@ public partial class DashboardViewModel : ViewModelBase
         if (CurrentPage > 0)
         {
             CurrentPage--;
-            UpdatePagedDicatadores();
+            UpdatePagedProyectos();
         }
     }
 
@@ -111,14 +97,14 @@ public partial class DashboardViewModel : ViewModelBase
         if (CurrentPage < TotalPages - 1)
         {
             CurrentPage++;
-            UpdatePagedDicatadores();
+            UpdatePagedProyectos();
         }
     }
     public async void  MyDataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
     {
-        if (e.Row.Item is DicatadorDTO dicatadorDTO)
+        if (e.Row.Item is ProyectoDTO proyectoDTO)
         {
-           await _dicatadorServiceToApi.PutDicatador(dicatadorDTO);
+           await _proyectoServiceToApi.PutProyecto(proyectoDTO);
         }
     }
     private bool CanGoToPreviousPage() => CurrentPage > 0;

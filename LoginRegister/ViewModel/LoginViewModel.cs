@@ -12,7 +12,7 @@ namespace InfoManager.ViewModel
     public partial class LoginViewModel : ViewModelBase
     {
         private readonly IHttpJsonProvider<UserDTO> _httpJsonProvider;
-        private readonly IDicatadorServiceToApi _dicatadorServiceToApi;
+        private readonly IProyectoServiceToApi _proyectoServiceToApi;
 
        
 
@@ -22,10 +22,10 @@ namespace InfoManager.ViewModel
         [ObservableProperty]
         private string _passwordView;
 
-        public LoginViewModel(IHttpJsonProvider<UserDTO> httpJsonProvider, IDicatadorServiceToApi dicatadorServiceToApi)
+        public LoginViewModel(IHttpJsonProvider<UserDTO> httpJsonProvider, IProyectoServiceToApi proyectoServiceToApi)
         {
             _httpJsonProvider = httpJsonProvider;
-            _dicatadorServiceToApi = dicatadorServiceToApi;
+            _proyectoServiceToApi = proyectoServiceToApi;
        
         }
 
@@ -36,11 +36,6 @@ namespace InfoManager.ViewModel
             App.Current.Services.GetService<LoginDTO>().Email = Name;
             App.Current.Services.GetService<LoginDTO>().Password = PasswordView;
             
-
-
-
-
-
 
             if (string.IsNullOrEmpty(Name) || string.IsNullOrEmpty(PasswordView))
             {

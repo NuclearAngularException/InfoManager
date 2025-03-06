@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./propuesta-page.component.css']
 })
 export class PropuestaPageComponent implements OnInit {
-  objetoId: number | null = null;
+  propuestaId: number | null = null;
   propuesta: propuestaModel = { id: 0, nombre: '', descripcion: '',tipo:'',estado:'', createDate: new Date() };
 
   constructor(
@@ -27,15 +27,15 @@ export class PropuestaPageComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
       if (id) {
-        this.objetoId = +id;
+        this.propuestaId = +id;
         this.cargarPropuesta();
       }
     });
   }
 
   async cargarPropuesta() {
-    if (this.objetoId) {
-      const objetoData = await this.objetoService.getProductById(this.objetoId);
+    if (this.propuestaId) {
+      const objetoData = await this.objetoService.getProductById(this.propuestaId);
       if (objetoData) {
         this.propuesta = objetoData;
       }
@@ -43,28 +43,28 @@ export class PropuestaPageComponent implements OnInit {
   }
 
   async actualizarPropuesta() {
-    if (this.objetoId) {
+    if (this.propuestaId) {
       try {
-        await this.objetoService.updateProduct(this.objetoId, this.propuesta);
-        alert('Objeto actualizado correctamente.');
+        await this.objetoService.updateProduct(this.propuestaId, this.propuesta);
+        alert('Propuesta actualizado correctamente.');
       } catch (error) {
-        console.error('Error al actualizar el objeto', error);
-        alert('Hubo un error al actualizar el objeto.');
+        console.error('Error al actualizar el proyecto', error);
+        alert('Hubo un error al actualizar el proyecto.');
       }
     }
   }
 
   async eliminarPropuesta() {
-    if (this.objetoId) {
-      const confirmacion = confirm('¿Estás seguro de que deseas eliminar este objeto?');
+    if (this.propuestaId) {
+      const confirmacion = confirm('¿Estás seguro de que deseas eliminar este proyecto?');
       if (confirmacion) {
         try {
-          await this.objetoService.deleteProduct(this.objetoId);
+          await this.objetoService.deleteProduct(this.propuestaId);
           alert('Objeto eliminado correctamente.');
           this.location.back();
         } catch (error) {
-          console.error('Error al eliminar el objeto', error);
-          alert('Hubo un error al eliminar el objeto.');
+          console.error('Error al eliminar el proyecto', error);
+          alert('Hubo un error al eliminar el proyecto.');
         }
       }
     }

@@ -34,6 +34,14 @@ export class ObjetoService {
     return (await response.json()) as propuestaModel | undefined;
   }
 
+  async getProductByUsuario(): Promise<propuestaModel[]> {
+    const response = await fetch(`${this.baseUrl}/user`, {
+      method: 'GET',
+      headers: this.getAuthHeaders()
+    });
+    return (await response.json()) ?? [];
+  }
+
   async updateProduct(id: number, partialProduct: Partial<propuestaModel>): Promise<propuestaModel> {
     const response = await fetch(`${this.baseUrl}/${id}`, {
       method: "PATCH",
@@ -60,7 +68,7 @@ export class ObjetoService {
       headers: this.getAuthHeaders()
     });
   
-    return response.ok; // Devuelve `true` si la eliminación fue exitosa
+    return response.ok; 
   }
   
 }

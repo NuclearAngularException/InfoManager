@@ -15,21 +15,22 @@ const routeConfig: Routes = [
   {
     path: 'registro',
     component: RegisterComponent,
-    title: 'registro',
+    title: 'I.E.S. Comercio',
   },
   {
     path: 'principal',
     component: PrincipalComponent,
+    title: 'I.E.S. Comercio',
   },
   {
     path: 'propuestaPage/:id',
     component: PropuestaPageComponent,
-    title: 'objetoIndividual'
+    title: 'I.E.S. Comercio'
   },
   {
     path: 'anadir',
     component: AnadirComponent,
-    title: 'anadirComponent'
+    title: 'I.E.S. Comercio'
   },
   {
     path: '**',

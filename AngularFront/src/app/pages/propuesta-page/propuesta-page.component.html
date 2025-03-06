@@ -9,11 +9,12 @@
     <label for="descripcion">Descripción del proyecto:</label>
     <input id="descripcion" type="text" [(ngModel)]="propuesta.descripcion" />
 
+    <p name="EstadoProyecto" id="estado" >Estado del proyecto: {{ propuesta.estado}}</p>
+
     <p name="TipoProyecto" id="tipo" >Tipo de proyecto: {{ propuesta.tipo}}</p>
 
-    <p name="FechaProyecto" id="fecha">Fecha del proyecto: {{ propuesta.createDate}}</p>
-    
-    <p name="EstadoProyecto" id="estado" >Estado del proyecto: {{ propuesta.estado}}</p>
+    <p name="FechaProyecto" id="fecha">Fecha del proyecto: {{ propuesta.createDate.toLocaleDateString()}}</p> 
+   
   </div>
 
   <button class="update-button" (click)="actualizarPropuesta()">Actualizar</button>

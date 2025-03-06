@@ -19,7 +19,7 @@ export class PrincipalComponent{
   porpuestasList: propuestaModel[] = [];
 
   constructor(private objetoService: ObjetoService){ 
-    this.objetoService.getAllProduct().then((porpuestasList: propuestaModel[]) => {
+    this.objetoService.getProductByUsuario().then((porpuestasList: propuestaModel[]) => {
       this.porpuestasList = porpuestasList;
   });
 }

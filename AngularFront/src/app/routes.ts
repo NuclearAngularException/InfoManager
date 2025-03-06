@@ -1,40 +1,40 @@
-import { Routes } from "@angular/router";
-import { HomeComponent } from "./home/home.component";
-import { DetailsComponent } from "./details/details.component";
-import { LoginComponent } from "./login/login.component";
-import { AuthGuard } from "./auth.guard";
-import { BidWindowComponent } from "./bid-window/bid-window.component";
+import { Routes } from '@angular/router';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { PrincipalComponent } from './pages/principal/prinicpal.component';
+import { PropuestaPageComponent } from './pages/propuesta-page/propuesta-page.component';
+import { AnadirComponent } from './pages/anadir/anadir.component';
 
 const routeConfig: Routes = [
-    {
-        path: 'home',
-        component: HomeComponent,
-        canActivate: [AuthGuard],
-        title: 'Home Page'
-    },
-    {
-        path:'details/:id',
-        component:DetailsComponent,
-        title:'Details Page'
-    },
-    {
-        path: 'bid/:id',
-        component: BidWindowComponent,
-        title: 'Bid Page'
-    },
-    { 
-        path: 'login', 
-        component: LoginComponent 
-    },
-    {
-        path: '',
-        redirectTo: 'home',
-        pathMatch: 'full'
-    },
-    { 
-        path: '**', 
-        redirectTo: 'home'
-    }
+  {
+    path: '',
+    component: LoginComponent,
+    title: 'I.E.S. Comercio',
+  },
+  {
+    path: 'registro',
+    component: RegisterComponent,
+    title: 'registro',
+  },
+  {
+    path: 'principal',
+    component: PrincipalComponent,
+  },
+  {
+    path: 'propuestaPage/:id',
+    component: PropuestaPageComponent,
+    title: 'objetoIndividual'
+  },
+  {
+    path: 'anadir',
+    component: AnadirComponent,
+    title: 'anadirComponent'
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent,
+  },
 ];
 
-export default routeConfig
+export default routeConfig;

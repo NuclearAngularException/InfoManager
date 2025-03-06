@@ -18,6 +18,8 @@ namespace RestAPI.AutoMapper
             CreateMap<AppUser, UserDto>().ReverseMap();
             CreateMap<ProyectoDTO, ProyectoEntity>().ReverseMap();
             CreateMap<CreateProyectoDTO, ProyectoEntity>().ReverseMap();
+            CreateMap<CreateProyectoUserDTO, ProyectoEntity>().ReverseMap();
+
         }
     }
 }

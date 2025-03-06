@@ -12,7 +12,7 @@ using RestAPI.Data;
 namespace RestAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250305233222_Initial")]
+    [Migration("20250306004219_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -254,7 +254,6 @@ namespace RestAPI.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("IdProfesor")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Nombre")
@@ -337,9 +336,7 @@ namespace RestAPI.Migrations
 
                     b.HasOne("RestAPI.Models.Entity.AppUser", "Profesor")
                         .WithMany("ProyectosProfesor")
-                        .HasForeignKey("IdProfesor")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IdProfesor");
 
                     b.Navigation("Alumno");
 

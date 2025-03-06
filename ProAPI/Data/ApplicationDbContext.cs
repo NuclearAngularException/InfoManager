@@ -19,7 +19,7 @@ namespace RestAPI.Data
             .HasMany(e => e.ProyectosProfesor)
             .WithOne(e => e.Profesor)
             .HasForeignKey(e => e.IdProfesor)
-            .IsRequired();
+            .IsRequired(false);
 
             modelBuilder.Entity<AppUser>()
             .HasMany(e => e.ProyectosAlumno)

@@ -9,7 +9,7 @@
     xmlns:viewmodels="clr-namespace:InfoManager.ViewModel" 
     d:DataContext="{d:DesignInstance Type=viewmodels:LoginViewModel}"
     mc:Ignorable="d"
-    Height="434" Width="789" Loaded="UserControl_Loaded">
+    Height="Auto" Width="Auto" Loaded="UserControl_Loaded">
 
 
     <UserControl.Background>
@@ -55,42 +55,45 @@
             Grid.Column="1"
             VerticalAlignment="Center" 
             HorizontalAlignment="Center" 
+            Width="Auto"
+            Height="Auto"
             Margin="0,10,0,20">
-
+            <ui:TextBlock Text="Email:" Margin="0,0,0,-10"/>
             <ui:TextBox
                 PlaceholderText="Usuario" 
-                Width="311"
-                Height="20"
+                Width="Auto"
+                Height="Auto"
                 Margin="0,10,0,10" 
                 Background="#F7F7F7"
                 Text="{Binding Name, Mode=TwoWay}" />
 
+            <ui:TextBlock Text="Password:" Margin="0,0,0,-10"/>
             <ui:PasswordBox 
                 PlaceholderText="Contraseña" 
-                Width="311" 
-                Height="20"
+                Width="Auto" 
+                Height="Auto"
                 Margin="0,10,0,10" 
                 Background="#F7F7F7"
                 Password="{Binding PasswordView, Mode=TwoWay}" />
 
             <StackPanel 
-    Grid.Row="3" 
-    Orientation="Horizontal" 
-    HorizontalAlignment="Center" 
-    Margin="0,10,0,0">
+                Grid.Row="3" 
+                Orientation="Horizontal" 
+                HorizontalAlignment="Center" 
+                Margin="0,10,0,0">
 
                 <TextBlock 
-        Text="¿No tienes una cuenta? " 
-        Foreground="White" 
-        VerticalAlignment="Center" />
+                    Text="¿No tienes una cuenta? " 
+                    Foreground="White" 
+                    VerticalAlignment="Center" />
 
                 <TextBlock 
-        Foreground="#4A90E2" 
-        Cursor="Hand" 
-        VerticalAlignment="Center">
-        <Hyperlink Command="{Binding RegisterCommand}">
-            <Run Text="Regístrate aquí" />
-        </Hyperlink>
+                    Foreground="#4A90E2" 
+                    Cursor="Hand" 
+                    VerticalAlignment="Center">
+                    <Hyperlink Command="{Binding RegisterCommand}">
+                        <Run Text="Regístrate aquí" />
+                    </Hyperlink>
                 </TextBlock>
             </StackPanel>
 
@@ -108,11 +111,6 @@
     />
         </StackPanel>
 
-        <!-- Botón de inicio de sesión -->
-        
-
-        <!-- Registro -->
-        
     </Grid>
 </UserControl>
 

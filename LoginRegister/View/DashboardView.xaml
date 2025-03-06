@@ -1,4 +1,4 @@
-<UserControl
+﻿<UserControl
     x:Class="InfoManager.View.DashboardView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -8,14 +8,12 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:viewmodels="clr-namespace:InfoManager.ViewModel"
     d:DataContext="{d:DesignInstance Type=viewmodels:DashboardViewModel}"
-    ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
-    ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-    mc:Ignorable="d" Width="804" Height="441">
+    mc:Ignorable="d" Width="Auto" Height="Auto">
 
     <UserControl.Background>
         <ImageBrush 
-             ImageSource="/Resources/Instituto.jpg" 
-             Stretch="UniformToFill" />
+    ImageSource="/Resources/Instituto.jpg" 
+    Stretch="UniformToFill" />
     </UserControl.Background>
 
     <Grid Margin="42" VerticalAlignment="Top" RenderTransformOrigin="0.502,0.458">

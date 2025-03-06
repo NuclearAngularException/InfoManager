@@ -53,7 +53,18 @@ namespace InfoManager.Service
                 Console.WriteLine(ex.Message);
             }
         }
-
+        public async Task CambiarEstado(ProyectoDTO proyecto)
+        {
+            try
+            {
+                if (proyecto == null) return;
+                var response = await _httpJsonProvider.PutAsync(Constants.PROYECTO_STATE_URL + "/" + proyecto.Id, proyecto);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
    
 }

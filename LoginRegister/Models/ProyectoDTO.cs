@@ -8,23 +8,25 @@ namespace InfoManager.Models
         [JsonPropertyName("id")]
         public int Id { get; set; }
 
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
+        [JsonPropertyName("nombre")]
+        public string Nombre { get; set; }
 
-        [JsonPropertyName("description")]
-        public string Description { get; set; }
+        [JsonPropertyName("descripcion")]
+        public string Descripcion { get; set; }
 
         [JsonPropertyName("tipo")]
         public string Tipo { get; set; }
 
-        [JsonPropertyName("id_alumno")]
-        public int Id_alumno { get; set; }
+        [JsonPropertyName("idAlumno")]
+        public string IdAlumno { get; set; }
 
-        [JsonPropertyName("id_profesor")]
-        public int Id_profesor { get; set; }
+        [JsonPropertyName("idProfesor")]
+        public string IdProfesor { get; set; }
 
         [JsonPropertyName("estado")]
         public string Estado { get; set; }
+        [JsonPropertyName("createdDate")]
+        public string CreatedDate { get; set; }
 
     }
     }

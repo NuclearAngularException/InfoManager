@@ -13,5 +13,6 @@ namespace InfoManager.Interface
 
         // Modifica un Proyecto ya existente
         Task PutProyecto(ProyectoDTO proyecto);
+        Task CambiarEstado(ProyectoDTO proyecto);
     }
 }

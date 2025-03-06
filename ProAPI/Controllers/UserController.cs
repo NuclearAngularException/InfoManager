@@ -23,7 +23,7 @@ namespace RestAPI.Controllers
             _mapper = mapper;
         }
 
-        [Authorize(Roles = "alumno")]
+        [Authorize(Roles = "alumno,profesor")]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]

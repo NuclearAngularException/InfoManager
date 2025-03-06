@@ -6,4 +6,10 @@ public class ProyectoDTO : CreateProyectoDTO
 
     public string IdAlumno { get; set; }
     public DateTime CreatedDate {get; set;}
+
+    public string AlumnoNombre { get; set; }
+    public string? ProfesorNombre { get; set; }
+
+
+
 }

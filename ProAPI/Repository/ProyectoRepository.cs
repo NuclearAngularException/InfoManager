@@ -46,6 +46,19 @@ namespace RestAPI.Repository
             return ProyectosFromDb;
         }
 
+        public async Task<ICollection<ProyectoEntity>> GetAllFromUserAsync(string id)
+        {
+            if (_cache.TryGetValue(ProyectoEntityCacheKey, out ICollection<ProyectoEntity> ProyectosCached))
+                return ProyectosCached;
+
+            var ProyectosFromDb = await _context.Proyectos.OrderBy(c => c.Nombre).Where(e=>e.IdAlumno==id).ToListAsync();
+            var cacheEntryOptions = new MemoryCacheEntryOptions()
+                  .SetAbsoluteExpiration(TimeSpan.FromSeconds(CacheExpirationTime));
+
+            _cache.Set(ProyectoEntityCacheKey, ProyectosFromDb, cacheEntryOptions);
+            return ProyectosFromDb;
+        }
+
         public async Task<ProyectoEntity> GetAsync(int id)
         {
             if (_cache.TryGetValue(ProyectoEntityCacheKey, out ICollection<ProyectoEntity> ProyectosCached))

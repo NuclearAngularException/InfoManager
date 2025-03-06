@@ -34,7 +34,27 @@ namespace RestAPI.Controllers
         {
             try
             {
+
                 var entities = _mapper.Map<List<ProyectoDTO>>(await _proyectoRepository.GetAllAsync());
+                return Ok(entities);
+            }
+            catch (Exception ex)
+            {
+                //_logger.LogError(ex, "Error fetching data");
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
+
+        [HttpGet("user")]
+        [Authorize(Roles = "alumno")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAllFromUser()
+        {
+            try
+            {
+
+                var entities = _mapper.Map<List<ProyectoDTO>>(await _proyectoRepository.GetAllFromUserAsync(User.FindFirstValue(ClaimTypes.NameIdentifier)));
                 return Ok(entities);
             }
             catch (Exception ex)
@@ -81,7 +101,9 @@ namespace RestAPI.Controllers
                     Descripcion = createDto.Descripcion,
                     Estado = createDto.Estado,
                     IdProfesor = createDto.IdProfesor,
-                    IdAlumno = User.FindFirstValue(ClaimTypes.NameIdentifier)
+                    IdAlumno = User.FindFirstValue(ClaimTypes.NameIdentifier),
+                    
+                    
                 });
                 await _proyectoRepository.CreateAsync(entity);
 
@@ -129,8 +151,12 @@ namespace RestAPI.Controllers
             try
             {
                 if (!ModelState.IsValid) return BadRequest(ModelState);
+                if(dto.Estado== "Aprobado")
+                {
+                    dto.IdProfesor = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                    dto.ProfesorNombre=User.FindFirstValue(ClaimTypes.Name);
+                }
 
-                dto.IdProfesor = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
                 var entity = await _proyectoRepository.GetAsync(id);
                 if (entity == null) return NotFound();
